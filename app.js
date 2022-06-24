@@ -9,6 +9,11 @@ var usersRouter = require('./routes/users');
 
 var app = express();
 
+const data = require('./public/javascripts/data.json');
+
+app.get('/search', function (req, res) {
+  res.json(data);
+})
 
 app.get('/data', function(req, res, next) {
   res.render('index', { title: 'data' });
