@@ -19,6 +19,15 @@ app.get('/data', function(req, res, next) {
   res.render('index', { title: 'data' });
 });
 
+app.get('/example/b', (req, res, next) => {
+  console.log('the response will be sent by the next function ...')
+  next()
+}, (req, res) => {
+  //res.send('Hello from B!')
+  res.download('./public/images/My_visual.png')
+
+})
+
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
