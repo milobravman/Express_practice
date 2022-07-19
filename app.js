@@ -15,6 +15,9 @@ const port = process.env.PORT || 5000;
 app.listen(port,()=> console.log(`listening on port ${port}`))
 
 
+app.get('/audio', function (req,res) {
+  res.sendFile('./public/audio/recording.mp3')
+})
 
 app.get('/search', function (req, res) {
   res.json(data);
@@ -44,6 +47,8 @@ app.use(cookieParser());
 //app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(express.static('public'));
+
+
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
